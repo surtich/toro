@@ -1,0 +1,15 @@
+{
+	"name": "Javier",
+	"age": 30,
+	"subjects": [
+		"web design", "web development", "operating systems"
+	],
+	"students": [
+		{
+			"name": "David"
+		},
+		{
+			"name": "Manuel"
+		}
+	]
+}
