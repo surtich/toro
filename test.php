@@ -2,11 +2,15 @@
 
 require("toro.php");
 
-header('Content-Type: application/json; charset=utf-8');
+
 
 class HelloHandler {
     function get() {
       echo "Hello, world";
+    }
+
+    function post() {
+      echo "Bye, world";
     }
 }
 
@@ -29,10 +33,16 @@ class Test4Handler {
 
 class Test3Handler {
     function get($name, $age) {
-    	$data = array("items"=>array("firstname"=>"faheem", "lastname"=>"abbas","address"=>"pakistan"));
-    	echo json_encode($data);
+      header('Content-Type: application/json; charset=utf-8');
+      $data = array("items"=>array("firstname"=>"faheem", "lastname"=>"abbas","address"=>"pakistan"));
+      echo json_encode($data);
     }
 }
+
+ToroHook::add("404",  function() {
+  header('HTTP/1.0 404 Not Found');
+  echo "Error";
+});
 
 Toro::serve(array(
     "/" => "HelloHandler",
